@@ -2,7 +2,7 @@
 使用方法
 
 第一步、安装&nbsp;<br>
-composer require xiaosongshu/message
+composer require xiaosongshu/appmessage
 第二步、引入message类<br>
 use Xiaosongshu/Message;<br>
 第三步，传入参数并实例化<br>
