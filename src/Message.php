@@ -38,7 +38,7 @@ class Message
      * @return array=[
      *      'code'=>200,
      *      'msg'=>'',
-     *      'task_id'=>[]
+     *      'data'=>[]
      * ]
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
@@ -117,12 +117,7 @@ class Message
         if ($code == 200) {
             $data = $response->getBody()->getContents();
             $data = json_decode($data, true);
-            if (isset($data['data']['taskid'])) {
-                $task_id = $data['data']['taskid'];
-            } else {
-                $task_id = 0;
-            }
-            return ['code' => 200, 'msg' => $data['msg'], 'task_id' => [$task_id]];
+            return ['code' => 200, 'msg' => $data['msg'], 'task_id' => $data['data']];
         } else {
             return ['code' => 400, 'msg' => '消息发送失败！', 'task_id' => []];
         }
@@ -140,11 +135,11 @@ class Message
      * @return array=[
      *      'code'=>200,
      *      'msg'=>'',
-     *      'task_id'=>[]
+     *      'data'=>[]
      * ]
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function send_one(array $param = ['title' => '', 'content' => '', 'url' => '', 'cid' => '']): array
+    public function send_one(array $param = ['title' => '', 'content' => '', 'url' => '', 'cid' => '']):array
     {
         $token    = $this->get_token();
         $client1  = new Client();
@@ -217,15 +212,9 @@ class Message
         if ($code == 200) {
             $data = $response->getBody()->getContents();
             $data = json_decode($data, true);
-
-            if (isset($data['data']['taskid'])) {
-                $task_id = $data['data']['taskid'];
-            } else {
-                $task_id = 0;
-            }
-            return ['code' => 200, 'msg' => $data['msg'], 'task_id' => [$task_id]];
+            return ['code' => 200, 'msg' => $data['msg'], 'data' => $data['data']];
         } else {
-            return ['code' => 400, 'msg' => '消息发送失败', 'task_id' => []];
+            return ['code' => 400, 'msg' => '消息发送失败', 'data' => []];
         }
     }
 
@@ -240,7 +229,7 @@ class Message
      * @return array=[
      *      'code'=>200,
      *      'msg'=>'',
-     *      'task_id'=>[]
+     *      'data'=>[]
      * ]
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
@@ -248,7 +237,7 @@ class Message
     {
         $cids     = $param['cids'];
         $count    = 0;
-        $task_ids = [];
+        $datas = [];
         foreach (array_chunk($cids, 500) as $k => $cid) {
             $task_id = $this->get_task_id($param);
             if (!$task_id) {
@@ -329,19 +318,13 @@ class Message
             if ($code == 200) {
                 $data = $response->getBody()->getContents();
                 $data = json_decode($data, true);
-
-                if (isset($data['data']['taskid'])) {
-                    $task_id = $data['data']['taskid'];
-                } else {
-                    $task_id = 0;
-                }
-                $task_ids[] = $task_id;
+                $datas[] = $data['data'];
                 $count++;
             } else {
-                return ['code' => 400, 'msg' => '第' . ($count) . '次消息批量发送失败！失败原因：其它。任务终止。'];
+                return ['code' => 400, 'msg' => '第' . ($count) . '次消息批量发送失败！失败原因：其它。任务终止。','data'=>[]];
             }
         }
-        return ['code' => 200, 'msg' => '分地区推送消息成功，共分为' . $count . '次推送完成！', 'task_id' => $task_ids];
+        return ['code' => 200, 'msg' => '分地区推送消息成功，共分为' . $count . '次推送完成！', 'data' => $datas];
     }
 
     protected function get_token()
