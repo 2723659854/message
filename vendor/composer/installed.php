@@ -3,7 +3,7 @@
         'name' => 'xiaosongshu/appmessage',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'a4d08bebc1f7a2ab7e2d62da21c00194d1e6732f',
+        'reference' => 'ba247d10dbc1c2aa45dc2075a8c73c82bdba6df0',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'guzzlehttp/guzzle' => array(
-            'pretty_version' => '7.4.4',
-            'version' => '7.4.4.0',
-            'reference' => 'e3ff079b22820c2029d4c2a87796b6a0b8716ad8',
+            'pretty_version' => '7.2.0',
+            'version' => '7.2.0.0',
+            'reference' => '0aa74dfb41ae110835923ef10a9d803a22d50e79',
             'type' => 'library',
             'install_path' => __DIR__ . '/../guzzlehttp/guzzle',
             'aliases' => array(),
@@ -29,9 +29,9 @@
             'dev_requirement' => false,
         ),
         'guzzlehttp/psr7' => array(
-            'pretty_version' => '2.3.0',
-            'version' => '2.3.0.0',
-            'reference' => '83260bb50b8fc753c72d14dc1621a2dac31877ee',
+            'pretty_version' => '1.8.5',
+            'version' => '1.8.5.0',
+            'reference' => '337e3ad8e5716c15f9657bd214d16cc5e69df268',
             'type' => 'library',
             'install_path' => __DIR__ . '/../guzzlehttp/psr7',
             'aliases' => array(),
@@ -47,21 +47,6 @@
             'dev_requirement' => false,
         ),
         'psr/http-client-implementation' => array(
-            'dev_requirement' => false,
-            'provided' => array(
-                0 => '1.0',
-            ),
-        ),
-        'psr/http-factory' => array(
-            'pretty_version' => '1.0.1',
-            'version' => '1.0.1.0',
-            'reference' => '12ac7fcd07e5b077433f5f2bee95b3a771bf61be',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../psr/http-factory',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'psr/http-factory-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
                 0 => '1.0',
@@ -91,19 +76,10 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'symfony/deprecation-contracts' => array(
-            'pretty_version' => 'v2.5.1',
-            'version' => '2.5.1.0',
-            'reference' => 'e8b495ea28c1d97b5e0c121748d6f9b53d075c66',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../symfony/deprecation-contracts',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'xiaosongshu/appmessage' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'a4d08bebc1f7a2ab7e2d62da21c00194d1e6732f',
+            'reference' => 'ba247d10dbc1c2aa45dc2075a8c73c82bdba6df0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
