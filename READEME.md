@@ -2,9 +2,9 @@
 使用方法
 
 第一步、安装&nbsp;<br>
-composer require xiaosongshu/appmessage
+composer require xiaosongshu/appmessage<br>
 第二步、引入message类<br>
-use Xiaosongshu/Message;<br>
+use Xiaosongshu\Appmessage\Message;<br>
 第三步，传入参数并实例化<br>
 $client=new Meessage(string $appId,string $appkey,string $mastersecret,string $baseUrl)<br>
 第四步、共有三个方法<br>
@@ -15,4 +15,8 @@ $client=new Meessage(string $appId,string $appkey,string $mastersecret,string $b
 return ['code' => 200, 'msg' => """, 'data' =>[];
 <br>
 ##
-开发者联系方式：2723659854@qq.com
+开发者联系方式：
+<br>
+2723659854@qq.com
+<br>
+171892716@qq.com
