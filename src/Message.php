@@ -12,6 +12,7 @@ class Message
     protected $appkey       = "";
     protected $mastersecret = "";
     protected $baseUrl      = "";
+    protected $packagename='';
 
     /**
      * Message constructor.初始化实例
@@ -19,13 +20,15 @@ class Message
      * @param string $appkey appkey 必填
      * @param string $mastersecret mstaersecret 必填
      * @param string $baseUrl baseUrl 必填 个推接口地址
+     * @param string $packagename packagename 必填 包名
      */
-    public function __construct(string $appId, string $appkey, string $mastersecret, string $baseUrl)
+    public function __construct(string $appId, string $appkey, string $mastersecret, string $baseUrl,string $packagename)
     {
         $this->appId        = $appId;
         $this->appkey       = $appkey;
         $this->mastersecret = $mastersecret;
         $this->baseUrl      = $baseUrl;
+        $this->packagename=$packagename;
     }
 
     /**
@@ -90,7 +93,7 @@ class Message
                                               'title'      => $param['title'],
                                               'body'       => $param['content'],
                                               'click_type' => 'intent',
-                                              'intent'     => 'intent:#Intent;action=android.intent.action.oppopush;launchFlags=0x04000000;component=szedu.com.shenzhi.szedu/io.dcloud.PandoraEntry;S.UP-OL-SU=true;S.title=测试标题;S.content=测试内容;S.payload=' . $param['url'] . ';end'
+                                              'intent'     => 'intent:#Intent;action=android.intent.action.oppopush;launchFlags=0x04000000;component='.$this->packagename.';S.UP-OL-SU=true;S.title='.$param['title'].';S.content='.$param['content'].';S.payload=' . $param['url'] . ';end'
                                           ],
 
                                       ]
@@ -183,7 +186,7 @@ class Message
                                     'title'      => $param['title'],
                                     'body'       => $param['content'],
                                     'click_type' => 'intent',
-                                    'intent'     => 'intent:#Intent;action=android.intent.action.oppopush;launchFlags=0x04000000;component=szedu.com.shenzhi.szedu/io.dcloud.PandoraEntry;S.UP-OL-SU=true;S.title=测试标题;S.content=测试内容;S.payload=' . $param['url'] . ';end'
+                                    'intent'     => 'intent:#Intent;action=android.intent.action.oppopush;launchFlags=0x04000000;component='.$this->packagename.';S.UP-OL-SU=true;S.title='.$param['title'].';S.content='.$param['content'].';S.payload=' . $param['url'] . ';end'
                                 ],
 
                             ]
@@ -291,7 +294,7 @@ class Message
                                         'title'      => $param['title'],
                                         'body'       => $param['content'],
                                         'click_type' => 'intent',
-                                        'intent'     => 'intent:#Intent;action=android.intent.action.oppopush;launchFlags=0x04000000;component=szedu.com.shenzhi.szedu/io.dcloud.PandoraEntry;S.UP-OL-SU=true;S.title=测试标题;S.content=测试内容;S.payload=' . $param['url'] . ';end'
+                                        'intent'     => 'intent:#Intent;action=android.intent.action.oppopush;launchFlags=0x04000000;component='.$this->packagename.';S.UP-OL-SU=true;S.title='.$param['title'].';S.content='.$param['content'].';S.payload=' . $param['url'] . ';end'
                                     ],
 
                                 ]
@@ -416,7 +419,7 @@ class Message
                                     'title'      => $param['title'],
                                     'body'       => $param['content'],
                                     'click_type' => 'intent',
-                                    'intent'     => 'intent:#Intent;action=android.intent.action.oppopush;launchFlags=0x04000000;component=szedu.com.shenzhi.szedu/io.dcloud.PandoraEntry;S.UP-OL-SU=true;S.title=' . $param['title'] . ';S.content=' . $param['content'] . ';S.payload=' . $param['url'] . ';end'
+                                    'intent'     => 'intent:#Intent;action=android.intent.action.oppopush;launchFlags=0x04000000;component='.$this->packagename.';S.UP-OL-SU=true;S.title=' . $param['title'] . ';S.content=' . $param['content'] . ';S.payload=' . $param['url'] . ';end'
                                 ],
 
                             ]

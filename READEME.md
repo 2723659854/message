@@ -6,7 +6,7 @@ composer require xiaosongshu/appmessage<br>
 第二步、引入message类<br>
 use Xiaosongshu\Appmessage\Message;<br>
 第三步，传入参数并实例化<br>
-$client=new Meessage(string $appId,string $appkey,string $mastersecret,string $baseUrl)<br>
+$client=new Meessage(string $appId,string $appkey,string $mastersecret,string $baseUrl,string $packagename)<br>
 第四步、共有三个方法<br>
 单个推送： $client->send_one(array $param)<br>
 批量推送： $client->send_list(array $param)<br>
