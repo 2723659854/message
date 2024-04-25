@@ -1,20 +1,22 @@
 {
-    "name": "xiaosongshu/appmessage",
-    "description": "\"app消息推送\"",
-    "type": "library",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Xiaosongshu\\Appmessage\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "yanglong",
-            "email": "2723659854@qq.com"
-        }
-    ],
-    "require": {
-        "guzzlehttp/guzzle": "*"
+  "name": "xiaosongshu/appmessage",
+  "description": "app消息推送，支持Android和iOS",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Xiaosongshu\\Appmessage\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "xiaosongshu",
+      "email": "2723659854@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4.0",
+    "guzzlehttp/guzzle": "*",
+    "ext-json": "*"
+  }
 }

@@ -1,22 +1,45 @@
-##
-使用方法
+## 消息推送
 
-第一步、安装&nbsp;<br>
-composer require xiaosongshu/appmessage<br>
-第二步、引入message类<br>
-use Xiaosongshu\Appmessage\Message;<br>
-第三步，传入参数并实例化<br>
-$client=new Meessage(string $appId,string $appkey,string $mastersecret,string $baseUrl,string $packagename)<br>
-第四步、共有三个方法<br>
-单个推送： $client->send_one(array $param)<br>
-批量推送： $client->send_list(array $param)<br>
-全部推送： $client->send_all(array $param)<br>
-第五步、推送完成后返回数据<br>
-return ['code' => 200, 'msg' => """, 'data' =>[];
-<br>
-##
-开发者联系方式：
-<br>
-2723659854@qq.com
-<br>
-171892716@qq.com
+### 项目描述
+本项目用于使用个推平台将消息推送到安卓Android和苹果iOS平台。
+###  安装 install
+```bash
+composer require xiaosongshu/appmessage
+```
+###  demo 示例
+```php
+<?php
+require_once __DIR__.'/vendor/autoload.php';
+
+use Xiaosongshu\Appmessage\Message;
+/** 你的APPid */
+$appId = '1';
+/** 你的APPkey */
+$appkey = '2';
+/** secret */
+$mastersecret = '3';
+/** 个推baseurl */
+$baseUrl = 'https://restapi.getui.com/v2/1';
+/** 包名称 */
+$packagename  = '4';
+/** 实例化客户端 */
+$client= new Message( $appId, $appkey, $mastersecret, $baseUrl, $packagename);
+/** 单个推送 */
+$res = $client->send_one(['title'=>'demo','content'=>'','url'=>'','cid'=>'']);
+/** 批量推送 */
+$res = $client->send_list(['title'=>'demo','content'=>'','url'=>'','cids'=>'']);
+/** 全部推送 */
+$res=$client->send_all(['title'=>'demo','content'=>'','url'=>'']);
+```
+### 返回码
+```php
+/** 成功 */
+$res = ['code' => 200, 'msg' => "", 'data' =>[]];
+/** 失败 */
+$res = ['code' => 400, 'msg' => "", 'data' =>[]];
+```
+### 开发者联系方式：
+邮箱： 2723659854@qq.com ，171892716@qq.com
+
+### 其他
+最近看到很多朋友在用这个扩展，以前说明文件写的很潦草，现在优化了以下说明文件。
