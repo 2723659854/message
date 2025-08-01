@@ -24,9 +24,9 @@ $baseUrl = 'https://restapi.getui.com/v2/1';
 $packagename  = '4';
 /** 实例化客户端 */
 $client= new Message( $appId, $appkey, $mastersecret, $baseUrl, $packagename);
-/** 单个推送 */
-$res = $client->send_one(['title'=>'demo','content'=>'内容','url'=>'跳转地址','cid'=>'1']);
-/** 批量推送 */
+/** 单个推送 cid请用真实的cid，此处仅做示例演示 */
+$res = $client->send_one(['title'=>'demo','content'=>'内容','url'=>'跳转地址','cid'=>1]);
+/** 批量推送 cid请用真实的cid，此处仅做示例演示 */
 $res = $client->send_list(['title'=>'demo','content'=>'内容','url'=>'跳转地址','cids'=>[1,2,3]]);
 /** 全部推送 */
 $res=$client->send_all(['title'=>'demo','content'=>'','url'=>'']);
